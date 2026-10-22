@@ -45,7 +45,7 @@
                     <p class="eyebrow"><span class="eyebrow-dot"></span> THE COLLECTION</p>
                     <h2 id="round-title" tabindex="-1">Sort the water</h2>
                 </div>
-                <p class="round-instruction">Send each drop to its matching basin.</p>
+                <p class="round-instruction">Sort the oldest drop before it reaches the waterline.</p>
             </div>
 
             <div class="scoreboard" aria-label="Round status">
@@ -61,27 +61,24 @@
             </div>
 
             <div class="sorting-station">
-                <div class="drop-field" id="drop-field" aria-live="polite" aria-atomic="true">
-                    <div class="drop-display" id="drop-display">
-                        <span class="water-drop drop-clean" id="current-drop" aria-hidden="true"></span>
-                        <span class="drop-name" id="drop-name">Clean water</span>
-                    </div>
-                    <p class="sort-message" id="sort-message">Choose the matching basin</p>
+                <div class="drop-field" id="drop-field" aria-label="Falling water drops. The oldest drop has a yellow outline and is next to sort.">
+                    <div class="score-feedback" id="score-feedback" aria-live="polite" aria-atomic="true"></div>
                 </div>
+                <p class="sort-message" id="sort-message">The oldest drop has a yellow outline. Sort it first.</p>
                 <div class="basins" aria-label="Choose a basin">
-                    <button class="basin-button basin-clean" type="button" data-sort="clean" aria-label="Sort into the blue clean-water basin">
+                    <button class="basin-button basin-clean" type="button" data-sort="clean" aria-label="Left basin: sort clean water into the blue basin">
                         <span class="basin-icon" aria-hidden="true"><span class="basin-water"></span></span>
-                        <span class="basin-copy"><strong>Clean water</strong><span>Blue basin</span></span>
+                        <span class="basin-copy"><strong>Clean water</strong><span>Left basin</span></span>
                         <span class="basin-arrow" aria-hidden="true">&#8594;</span>
                     </button>
-                    <button class="basin-button basin-dirty" type="button" data-sort="dirty" aria-label="Sort into the dark dirty-water basin">
+                    <button class="basin-button basin-dirty" type="button" data-sort="dirty" aria-label="Right basin: sort dirty water into the dark basin">
                         <span class="basin-icon basin-icon-dark" aria-hidden="true"><span class="basin-water"></span></span>
-                        <span class="basin-copy"><strong>Dirty water</strong><span>Dark basin</span></span>
+                        <span class="basin-copy"><strong>Dirty water</strong><span>Right basin</span></span>
                         <span class="basin-arrow" aria-hidden="true">&#8594;</span>
                     </button>
                 </div>
             </div>
-            <p class="game-tip">A correct sort earns <strong>10 points</strong>. A miss costs <strong>5</strong>.</p>
+            <p class="game-tip">Left: clean <span aria-hidden="true">&middot;</span> Right: dirty <span aria-hidden="true">&middot;</span> Keys: &larr; / &rarr; or A / D <span aria-hidden="true">&middot;</span> Miss: <strong>-15 points</strong></p>
         </section>
 
         <section class="screen results-screen" id="results" aria-labelledby="results-title" hidden>
@@ -100,6 +97,7 @@
         </section>
     </main>
     <footer class="site-footer"><span>Clean water is a human right.</span><span>charity: water</span></footer>
+    <div class="confetti-layer" id="confetti-layer" aria-hidden="true" hidden></div>
     <script src="script.js"></script>
 </body>
 </html>
